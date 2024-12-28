@@ -65,6 +65,8 @@ public class Equation {
         return switch (operator) {
             case "*" ->
                 a * b;
+            case "||" ->
+                (a*(long)Math.pow(10, String.valueOf(b).length()))+b;
             default ->
                 a + b;
         };

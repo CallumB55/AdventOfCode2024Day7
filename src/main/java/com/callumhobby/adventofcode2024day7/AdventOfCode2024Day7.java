@@ -29,7 +29,20 @@ public class AdventOfCode2024Day7 {
                 totalCalibrationResult += equation.testValue;
             }
         }
-        System.out.println("total calibration result: "+totalCalibrationResult);
+        System.out.println("total calibration result pre-concatenation: "+totalCalibrationResult);
+        
+        operators.add("||");
+        List<Equation> concatenatedEquations = new ArrayList<>();
+        for (String line : in.getLines()) {
+            concatenatedEquations.add(new Equation(line,operators));
+        }
+        totalCalibrationResult = 0L;
+        for (Equation equation : concatenatedEquations) {
+            if (equation.isValid) {
+                totalCalibrationResult += equation.testValue;
+            }
+        }
+        System.out.println("total calibration result post-concatenation: "+totalCalibrationResult);
         
     }
 }
